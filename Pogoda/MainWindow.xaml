@@ -44,7 +44,7 @@
         <DataGrid Grid.Row="1" x:Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="grid_MouseDblClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Miasto" Binding="{Binding name}"/>
-                <DataGridTextColumn Header="Wojewódźtwo" Binding="{Binding state}"/>
+                <DataGridTextColumn Header="Województwo" Binding="{Binding state}"/>
                 <DataGridTextColumn Header="Kraj" Binding="{Binding country}"/>
                 <DataGridTextColumn Header="Wysokość" Binding="{Binding longitude}"/>
                 <DataGridTextColumn Header="Szerokość" Binding="{Binding latitude}"/>
