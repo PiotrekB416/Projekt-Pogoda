@@ -8,6 +8,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -21,7 +22,9 @@ namespace Pogoda
     public partial class MainWindow : Window
     {
         ObservableCollection<City> cities = new ObservableCollection<City>();
-        bool aboutOpen = false;
+        private bool aboutOpen = false;
+        private bool prefsOpen = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -86,7 +89,7 @@ namespace Pogoda
             
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_About_Click(object sender, RoutedEventArgs e)
         {
             if (aboutOpen)
             {
@@ -97,6 +100,19 @@ namespace Pogoda
             about.Show();
             about.Closed += (s, e) => aboutOpen = false;
 
+        }
+
+        private void MenuItem_Prefs_Click(object sender, RoutedEventArgs e)
+        {
+            if(prefsOpen)
+            {
+                return;
+            }
+            prefsOpen = true;
+            Prefs prefs = new Prefs();
+            
+            prefs.ShowDialog();
+            prefs.Closed += (s,e) => prefsOpen = false;
         }
     }
 }

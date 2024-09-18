@@ -17,7 +17,8 @@
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="O Aplikacji" Click="MenuItem_Click"/>
+            <MenuItem Header="O Aplikacji" Click="MenuItem_About_Click"/>
+            <MenuItem Header="Opcje" Click="MenuItem_Prefs_Click"/>
         </Menu>
         <Grid>
 

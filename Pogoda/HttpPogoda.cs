@@ -16,14 +16,15 @@ namespace Pogoda
         static HttpClient httpClient { get; } = new HttpClient() { BaseAddress = new Uri("https://api.openweathermap.org") };
         static string API_KEY { get; } = "986c5ece8479bfab6721d433f86bf665";
 
-        public static async Task<List<City>> GetCities(String city) {
+        public static async Task<List<City>> GetCities(string city) {
             using HttpResponseMessage response = await httpClient.GetAsync($"/geo/1.0/direct?q={city}&limit=5&appid={API_KEY}");
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var content = await response.Content.ReadAsStringAsync();
                 var res = JsonConvert.DeserializeObject<List<City>>(content);
 
-                if (res != null) {
+                if (res != null)
+                {
                     return res;
                 }
             }
